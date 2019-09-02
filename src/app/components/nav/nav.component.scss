@@ -3,7 +3,7 @@ mat-toolbar {
   -webkit-box-shadow: 0 0 10px 5px #999;
 }
 
-.filler{
+.filler {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
