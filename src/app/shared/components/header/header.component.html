@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <h1>Pfadi Nünenen</h1>
+  <div class="filler"></div>
+  <div *ngFor="let navElement of navElements">
+    <button mat-button [routerLink]="navElement.routerLink">{{navElement.titel}}</button>
+  </div>
+  <app-login></app-login>
+</mat-toolbar>

@@ -3,24 +3,17 @@ import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument
-} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from 'app/shared/model/user';
+import { User } from 'app/core/models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user: Observable<User>;
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router
-  ) {
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     //// Get auth data, then get firestore user document || null
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -44,9 +37,7 @@ export class AuthService {
 
   private updateUserData(user) {
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
       uid: user.uid,

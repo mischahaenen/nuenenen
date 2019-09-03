@@ -5,20 +5,18 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
-import { CoreModule } from './core/core.module';
-import { LoginComponent } from './components/login/login.component';
 import { environment } from 'environments/environment';
-import { MaterialModule } from './shared/modules/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PagesModule } from './pages/pages.module';
+import { SharedModule } from './shared/components/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, LoginComponent],
+  declarations: [AppComponent],
   imports: [
-    MaterialModule,
+    PagesModule,
+    SharedModule,
     BrowserAnimationsModule,
     BrowserModule,
-    CoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AppRoutingModule
