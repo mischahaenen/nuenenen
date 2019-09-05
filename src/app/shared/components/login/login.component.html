@@ -1,0 +1,15 @@
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <button mat-button (click)="auth.googleLogin()">
+    Login
+  </button>
+</ng-template>
+
+<!-- User logged in -->
+<div *ngIf="auth.user | async as user; else guest">
+  <button mat-button [matMenuTriggerFor]="profil">{{ user.displayName }}</button>
+  <mat-menu #profil="matMenu">
+    <button mat-menu-item>Profil</button>
+    <button mat-menu-item (click)="auth.signOut()">Logout</button>
+  </mat-menu>
+</div>
