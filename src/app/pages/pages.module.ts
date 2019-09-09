@@ -5,9 +5,11 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { MaterialModule } from 'app/core/modules/material.module';
+import { NextEventsComponent } from './blog/next-events/next-events.component';
+import { NewPostComponent } from './blog/new-post/new-post.component';
 
 @NgModule({
-  declarations: [HomeComponent, BlogComponent],
+  declarations: [HomeComponent, BlogComponent, NextEventsComponent, NewPostComponent],
   imports: [CommonModule, AngularFireAuthModule, AngularFirestoreModule, MaterialModule],
   providers: []
 })
