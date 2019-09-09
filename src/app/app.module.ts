@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
