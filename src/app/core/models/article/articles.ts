@@ -1,4 +1,4 @@
-class Post {
+class Article {
   id: number;
   title: string;
   description: string;
@@ -7,7 +7,7 @@ class Post {
   photoUrl?: string;
   tags?: string[];
 
-  constructor(initializer?: Partial<Post>) {
+  constructor(initializer?: Partial<Article>) {
     Object.assign(this, initializer);
   }
 }
