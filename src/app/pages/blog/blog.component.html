@@ -8,16 +8,16 @@
     <button class="col-12 col-md-1 mr-2" mat-raised-button>Piostufe</button>
     <button class="col-12 col-md-1 mr-2" mat-raised-button>Roverstufe</button>
     <button class="col-12 col-md-1" mat-raised-button>Abteilung</button>
-    <button class="col-12 col-md-1 ml-2" mat-raised-button (click)="openNewPostPage()">Beitrag hinzufügen</button>
+    <button class="col-12 col-md-1 ml-2" mat-raised-button (click)="openNewArticlePage()">Beitrag hinzufügen</button>
   </div>
   <div class="row">
-    <div class="col-12 col-md-8 d-flex" *ngIf="posts$ | async as posts">
-      <mat-card class="col-12 col-md-6" *ngFor="let post of posts">
+    <div class="col-12 col-md-8 d-flex" *ngIf="articles$ | async as articles">
+      <mat-card class="col-12 col-md-6" *ngFor="let article of articles">
         <mat-card-header>
-          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-title>{{article.title}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          {{post.description}}
+          {{article.description}}
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>Ok</button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BlogService } from 'app/core/services/blog/blog.service';
+import { BlogService } from 'app/core/business/article/article.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  posts$: Observable<Post[]>;
+  articles$: Observable<Article[]>;
 
   constructor(private blogService: BlogService, private router: Router) {}
 
   ngOnInit() {
-    this.posts$ = this.blogService.getPosts();
+    this.articles$ = this.blogService.getArticles();
   }
 
-  openNewPostPage(): void {
-    this.router.navigate(['new/post']);
+  openNewArticlePage(): void {
+    this.router.navigate(['new/article']);
   }
 }

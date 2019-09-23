@@ -6,11 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { MaterialModule } from 'app/core/modules/material.module';
 import { NextEventsComponent } from './blog/next-events/next-events.component';
-import { NewPostComponent } from './blog/new-post/new-post.component';
+import { NewArticleComponent } from './blog/new-article/new-article.component';
 import { AbteilungComponent } from './abteilung/abteilung.component';
 
 @NgModule({
-  declarations: [HomeComponent, BlogComponent, NextEventsComponent, NewPostComponent, AbteilungComponent],
+  declarations: [HomeComponent, BlogComponent, NextEventsComponent, NewArticleComponent, AbteilungComponent],
   imports: [CommonModule, AngularFireAuthModule, AngularFirestoreModule, MaterialModule],
   providers: []
 })
