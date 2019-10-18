@@ -3,21 +3,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BlogService } from 'app/core/services/blog/blog.service';
 
 @Component({
-  selector: 'app-new-post',
-  templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.scss']
+  selector: 'app-new-article',
+  templateUrl: './new-article.component.html',
+  styleUrls: ['./new-article.component.scss']
 })
 export class NewPostComponent implements OnInit {
-  public postForm: FormGroup;
+  public articleForm: FormGroup;
 
   constructor(private blogService: BlogService) {}
 
   ngOnInit() {
-    this.postForm = this.inizializeFormGroup();
+    this.articleForm = this.inizializeFormGroup();
   }
   save(): void {
-    const post: Post = new Post(this.postForm.value);
-    this.blogService.createPost(post);
+    const article: Article = new Article(this.articleForm.value);
+    this.blogService.createArticle(article);
   }
   inizializeFormGroup(): FormGroup {
     return new FormGroup({

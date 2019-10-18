@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
-  private postCollection: AngularFirestoreCollection<Post>;
-  private posts: Observable<Post[]>;
+  private articleCollection: AngularFirestoreCollection<Article>;
+  private articles: Observable<Article[]>;
 
   constructor(private afs: AngularFirestore) {
-    this.postCollection = afs.collection('posts');
-    this.posts = this.postCollection.valueChanges();
+    this.articleCollection = afs.collection('articles');
+    this.articles = this.articleCollection.valueChanges();
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.posts;
+  getArticles(): Observable<Article[]> {
+    return this.articles;
   }
 
-  createPost(newPost: Post): void {
-    this.postCollection.add(newPost);
+  createArticle(newArticle: Article): void {
+    this.articleCollection.add(newArticle);
   }
 }
