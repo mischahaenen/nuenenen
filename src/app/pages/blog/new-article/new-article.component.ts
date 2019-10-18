@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ArticleService } from 'app/core/business/article/article.service';
 
 @Component({
   selector: 'app-new-article',
@@ -9,14 +10,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class NewArticleComponent implements OnInit {
   public articleForm: FormGroup;
 
-  constructor(private blogService: BlogService) {}
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
     this.articleForm = this.inizializeFormGroup();
   }
   save(): void {
     const article: Article = new Article(this.articleForm.value);
-    this.blogService.createArticle(article);
+    this.articleService.createArticle(article);
   }
   inizializeFormGroup(): FormGroup {
     return new FormGroup({

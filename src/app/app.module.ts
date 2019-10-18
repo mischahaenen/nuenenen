@@ -9,9 +9,10 @@ import { environment } from 'environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/components/shared.module';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     PagesModule,
     SharedModule,
