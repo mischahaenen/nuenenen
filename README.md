@@ -17,3 +17,5 @@ https://blog.axosoft.com/gitflow/
 ## Design
 
 Consider: https://xd.adobe.com/view/23224847-0828-4aae-68a2-209d753d4bcf-5513/
+
+[![Known Vulnerabilities](https://snyk.io//test/github/mischahaenen/nuenenen/badge.svg?targetFile=package.json)](https://snyk.io//test/github/mischahaenen/nuenenen?targetFile=package.json)

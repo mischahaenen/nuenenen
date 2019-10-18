@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BlogService } from 'app/core/services/blog/blog.service';
+import { ArticleService } from 'app/core/business/article/article.service';
 
 @Component({
   selector: 'app-new-article',
   templateUrl: './new-article.component.html',
   styleUrls: ['./new-article.component.scss']
 })
-export class NewPostComponent implements OnInit {
+export class NewArticleComponent implements OnInit {
   public articleForm: FormGroup;
 
-  constructor(private blogService: BlogService) {}
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
     this.articleForm = this.inizializeFormGroup();
   }
   save(): void {
     const article: Article = new Article(this.articleForm.value);
-    this.blogService.createArticle(article);
+    this.articleService.createArticle(article);
   }
   inizializeFormGroup(): FormGroup {
     return new FormGroup({
