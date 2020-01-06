@@ -3,21 +3,18 @@
     <mat-form-field class="col-12 col-md-2 mr-2">
       <input matInput placeholder="Suche">
     </mat-form-field>
-    <button class="col-12 col-md-1 mr-2" mat-raised-button>Wolfsstufe</button>
-    <button class="col-12 col-md-1 mr-2" mat-raised-button>Pfadistufe</button>
-    <button class="col-12 col-md-1 mr-2" mat-raised-button>Piostufe</button>
-    <button class="col-12 col-md-1 mr-2" mat-raised-button>Roverstufe</button>
-    <button class="col-12 col-md-1" mat-raised-button>Abteilung</button>
-    <button class="col-12 col-md-1 ml-2" mat-raised-button (click)="openNewArticlePage()">Beitrag hinzufügen</button>
+    <button class="col-12 col-md-1 mr-2" mat-raised-button *ngFor="let filter of filters">{{ filter }}</button>
+    <button class="col-12 col-md-1" mat-raised-button (click)="openNewArticlePage()" color="primary">Beitrag
+      hinzufügen</button>
   </div>
   <div class="row">
     <div class="col-12 col-md-8 d-flex" *ngIf="articles$ | async as articles">
       <mat-card class="col-12 col-md-6" *ngFor="let article of articles">
         <mat-card-header>
-          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-title>{{ article.title }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          {{article.description}}
+          {{ article.description }}
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>Ok</button>

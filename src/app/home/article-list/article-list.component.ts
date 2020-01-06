@@ -10,6 +10,7 @@ import { ArticleService } from '@home/shared/article.service';
 })
 export class ArticleListComponent implements OnInit {
   articles$: Observable<Article[]>;
+  filters: string[] = ['Wolfsstufe', 'Pfadistufe', 'Piostufe', 'Roverstufe', 'Abteilung'];
 
   constructor(private articleSrvice: ArticleService, private router: Router) {}
 
@@ -18,6 +19,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   openNewArticlePage(): void {
-    this.router.navigate(['new/article']);
+    this.router.navigate(['/new-article']);
   }
 }

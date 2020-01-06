@@ -1,12 +1,26 @@
-<div class="container-fluid">
-  <h1>Beitrag hinzufügen</h1>
-  <form formGroup="articleForm">
-    <mat-form-field>
-      <input matInput placeholder="Titel" formControlName="title">
-    </mat-form-field>
-    <mat-form-field>
-      <textarea name="description" formControlName="description"></textarea>
-    </mat-form-field>
-  </form>
-
+<div class="container-fluid row mt-5">
+  <div class="col-5 mr-5">
+    <h1>Neuer Beitrag</h1>
+    <form formGroup="articleForm" onsubmit="save()">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Titel" formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <textarea matInput placeholder="Beschreibung" formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Bild" formControlName="image">
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Tags" formControlName="tags">
+      </mat-form-field>
+      <div class="d-flex justify-content-center">
+        <button class="w-25 mr-3" type="submit" mat-raised-button color="primary">Speichern</button>
+        <button class="w-25" mat-raised-button (click)="abort()">Abbrechen</button>
+      </div>
+    </form>
+  </div>
+  <div col-6>
+    <h2>Vorschau</h2>
+  </div>
 </div>

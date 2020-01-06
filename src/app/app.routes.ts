@@ -11,13 +11,8 @@ const routes: Routes = [
   { path: 'mitmachen', component: HomeComponent },
   { path: 'shop', component: HomeComponent },
   {
-    path: 'new',
-    children: [
-      {
-        path: 'article',
-        component: NewArticleComponent
-      }
-    ]
+    path: 'new-article',
+    component: NewArticleComponent
   },
   { path: '**', redirectTo: 'home' }
 ];
