@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from '@shared/services/notification.service';
+import { NotificationType } from '@shared/models/notification-type';
 
 @Component({
   selector: 'app-home',
