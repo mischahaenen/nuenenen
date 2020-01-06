@@ -7,3 +7,11 @@
   display: flex;
   align-items: center;
 }
+
+.home-screen {
+  background: no-repeat top right / contain url(../../assets/images/home_background.png);
+}
+
+.home-image {
+  width: 100%;
+}
