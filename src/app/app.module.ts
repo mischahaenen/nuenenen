@@ -7,22 +7,22 @@ import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/components/shared.module';
-import { TestComponent } from './test/test.component';
+import { HomeModule } from '@app/home/home.module';
+import { AbteilungModule } from '@abteilung/abteilung.module';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent],
+  declarations: [AppComponent],
   imports: [
-    PagesModule,
-    SharedModule,
     BrowserAnimationsModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    SharedModule,
+    HomeModule,
+    AbteilungModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
