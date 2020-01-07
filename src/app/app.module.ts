@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
-import { SharedModule } from '@shared/shared.module';
 import { HomeModule } from '@app/home/home.module';
 import { AbteilungModule } from '@abteilung/abteilung.module';
 import { CoreModule } from './core/core.module';
@@ -18,8 +16,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'nünenen-dev'),
     CoreModule,
     HomeModule,
     AbteilungModule,

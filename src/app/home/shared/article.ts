@@ -1,4 +1,4 @@
-class Article {
+export interface Article {
   id: number;
   title: string;
   description: string;
@@ -6,8 +6,4 @@ class Article {
   created: Date;
   photoUrl?: string;
   tags?: string[];
-
-  constructor(initializer?: Partial<Article>) {
-    Object.assign(this, initializer);
-  }
 }

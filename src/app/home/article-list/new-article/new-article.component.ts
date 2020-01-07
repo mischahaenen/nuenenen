@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticleService } from '@home/shared/article.service';
+import { Article } from '@home/shared/article';
+import { AuthService } from '@core/auth/auth.service';
 
 @Component({
   selector: 'app-new-article',
@@ -10,15 +12,18 @@ import { ArticleService } from '@home/shared/article.service';
 })
 export class NewArticleComponent implements OnInit {
   public articleForm: FormGroup;
+  public article: Article;
+  private userName: string;
 
-  constructor(private articleService: ArticleService, private router: Router) {}
+  constructor(private articleService: ArticleService, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.articleForm = this.inizializeFormGroup();
+    this.articleForm.valueChanges.subscribe(article => (this.article = Object.assign({}, article)));
   }
 
   save(): void {
-    const article: Article = new Article(this.articleForm.value);
+    const article: Article = Object.assign({}, this.articleForm.value);
     this.articleService.createArticle(article);
   }
 
@@ -30,7 +35,7 @@ export class NewArticleComponent implements OnInit {
     return new FormGroup({
       title: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
-      author: new FormControl('me'),
+      author: new FormControl(this.userName),
       image: new FormControl(''),
       created: new FormControl(Date.now()),
       tags: new FormControl('')

@@ -1,7 +1,7 @@
-<div class="container-fluid row mt-5">
+<div class="container-fluid row p-4">
   <div class="col-5 mr-5">
-    <h1>Neuer Beitrag</h1>
-    <form formGroup="articleForm" onsubmit="save()">
+    <h1 class="mb-4">Neuer Beitrag</h1>
+    <form [formGroup]="articleForm" (ngSubmit)="save()">
       <mat-form-field class="w-100">
         <input matInput placeholder="Titel" formControlName="title">
       </mat-form-field>
@@ -14,13 +14,13 @@
       <mat-form-field class="w-100">
         <input matInput placeholder="Tags" formControlName="tags">
       </mat-form-field>
-      <div class="d-flex justify-content-center">
-        <button class="w-25 mr-3" type="submit" mat-raised-button color="primary">Speichern</button>
-        <button class="w-25" mat-raised-button (click)="abort()">Abbrechen</button>
-      </div>
+      <button class="w-25 mr-3" type="submit" mat-raised-button color="primary"
+        [disabled]="articleForm.invalid">Speichern</button>
+      <button class="w-25" mat-raised-button (click)="abort()">Abbrechen</button>
     </form>
   </div>
   <div col-6>
-    <h2>Vorschau</h2>
+    <h2 class="mb-4">Vorschau</h2>
+    <app-article-card [article]="article"></app-article-card>
   </div>
 </div>
