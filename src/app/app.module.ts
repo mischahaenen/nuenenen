@@ -11,6 +11,7 @@ import { environment } from 'environments/environment';
 import { SharedModule } from '@shared/shared.module';
 import { HomeModule } from '@app/home/home.module';
 import { AbteilungModule } from '@abteilung/abteilung.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { AbteilungModule } from '@abteilung/abteilung.module';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    SharedModule,
+    CoreModule,
     HomeModule,
     AbteilungModule,
     AppRoutingModule

@@ -1,9 +1,0 @@
-<mat-toolbar color="primary" class="mat-elevation-z6">
-  <h1><b>PFADI</b> NÜNENEN</h1>
-  <div class="filler"></div>
-  <div *ngFor="let navElement of navElements">
-    <button mat-button [routerLink]="navElement.routerLink" routerLinkActive="is-active"
-      class="ml-4 nav-button">{{navElement.titel}}</button>
-  </div>
-  <app-login class="ml-4"></app-login>
-</mat-toolbar>
