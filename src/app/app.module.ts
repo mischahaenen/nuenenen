@@ -10,6 +10,7 @@ import { environment } from 'environments/environment';
 import { HomeModule } from '@app/home/home.module';
 import { AbteilungModule } from '@abteilung/abteilung.module';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'nünenen-dev'),
     CoreModule,
+    SharedModule,
     HomeModule,
     AbteilungModule,
     AppRoutingModule

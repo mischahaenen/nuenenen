@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ArticleService } from '@home/shared/article.service';
-import { Article } from '@home/shared/article';
+import { ArticleService } from '@app/home/article-list/shared/article.service';
+import { Article } from '@app/home/article-list/shared/article';
 import { AuthService } from '@core/auth/auth.service';
 
 @Component({

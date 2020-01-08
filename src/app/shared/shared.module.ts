@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from 'app/core/modules/material.module';
 import { CommonModule } from '@angular/common';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [TimeAgoPipe],
   imports: [CommonModule, MaterialModule],
-  exports: []
+  exports: [TimeAgoPipe]
 })
 export class SharedModule {}
