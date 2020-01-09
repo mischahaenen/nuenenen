@@ -9,13 +9,21 @@ import { ArticleListComponent } from '@home/article-list/article-list.component'
 import { NewArticleComponent } from '@home/article-list/new-article/new-article.component';
 import { NextEventsComponent } from '@home/article-list/next-events/next-events.component';
 import { MaterialModule } from '@core/modules/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArticleCardComponent } from './article-list/article-card/article-card.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { ArticleFilterComponent } from './article-list/article-filter/article-filter.component';
 
 @NgModule({
-  declarations: [HomeComponent, ArticleListComponent, NewArticleComponent, NextEventsComponent, ArticleCardComponent],
-  imports: [CommonModule, ReactiveFormsModule, MaterialModule, AngularFireAuthModule, AngularFirestoreModule, SharedModule],
+  declarations: [
+    HomeComponent,
+    ArticleListComponent,
+    NewArticleComponent,
+    NextEventsComponent,
+    ArticleCardComponent,
+    ArticleFilterComponent
+  ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, MaterialModule, AngularFireAuthModule, AngularFirestoreModule, SharedModule],
   exports: [ArticleCardComponent]
 })
 export class HomeModule {}

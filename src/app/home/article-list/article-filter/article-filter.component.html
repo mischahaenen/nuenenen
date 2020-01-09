@@ -1,0 +1,7 @@
+<div class="article-filter-container p-3">
+  <mat-form-field class="col-12 col-lg-6">
+    <input matInput placeholder="Suche" [(ngModel)]="text">
+  </mat-form-field>
+  <button class="mb-3 mr-3" mat-raised-button *ngFor="let tag of tags" (click)="filterTag(tag)"
+    [color]="tag.active ? 'accent' : black">{{ tag.name }}</button>
+</div>

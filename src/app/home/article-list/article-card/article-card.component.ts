@@ -9,4 +9,5 @@ import { Article } from '@app/home/article-list/shared/article';
 })
 export class ArticleCardComponent {
   @Input() article: Article;
+  @Input() isListElement = true;
 }

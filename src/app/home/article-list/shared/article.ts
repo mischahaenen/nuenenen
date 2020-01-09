@@ -5,5 +5,5 @@ export interface Article {
   author: string;
   created: Date;
   photoUrl?: string;
-  tags?: string[];
+  tag: string;
 }

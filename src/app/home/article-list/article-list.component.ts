@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
-import { ArticleService } from '@app/home/article-list/shared/article.service';
+
+import { ArticleService } from '@home/article-list/shared/article.service';
 import { Article } from './shared/article';
 
 @Component({
@@ -11,15 +12,27 @@ import { Article } from './shared/article';
 })
 export class ArticleListComponent implements OnInit {
   articles$: Observable<Article[]>;
-  filters: string[] = ['Wolfsstufe', 'Pfadistufe', 'Piostufe', 'Roverstufe', 'Abteilung'];
+  isFilterActive = false;
+  isListView = false;
 
-  constructor(private articleSrvice: ArticleService, private router: Router) {}
+  constructor(private articleService: ArticleService, private router: Router) {}
 
   ngOnInit() {
-    this.articles$ = this.articleSrvice.getArticles();
+    this.articles$ = this.articleService.getArticles();
+    this.articleService.articlesChanged.subscribe((articles: Article[]) => {
+      this.articles$ = of(articles);
+    });
   }
 
   openNewArticlePage(): void {
     this.router.navigate(['/new-article']);
+  }
+
+  toggleViewMode(mode: string) {
+    this.isListView = mode === 'grid' ? false : true;
+  }
+
+  toggleFilter() {
+    this.isFilterActive = !this.isFilterActive;
   }
 }
