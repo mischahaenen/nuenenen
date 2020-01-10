@@ -19,7 +19,7 @@
       </div>
     </div>
     <div *ngIf="isFilterActive" class="mb-4">
-      <app-article-filter [articles]="articles"></app-article-filter>
+      <app-article-filter></app-article-filter>
     </div>
     <div class="row">
       <ng-container *ngIf="isListView; else gridView">

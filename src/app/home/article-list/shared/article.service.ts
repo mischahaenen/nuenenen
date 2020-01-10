@@ -1,6 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { NotificationService } from '@shared/services/notification.service';
@@ -10,16 +12,14 @@ import { Article } from './article';
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
   private articleCollection: AngularFirestoreCollection<Article>;
-  private articles: Observable<Article[]>;
   articlesChanged = new EventEmitter<Article[]>();
 
   constructor(private afs: AngularFirestore, private notificationService: NotificationService) {
     this.articleCollection = afs.collection<Article>('articles');
-    this.articles = this.articleCollection.valueChanges();
   }
 
   getArticles(): Observable<Article[]> {
-    return this.articles;
+    return this.afs.collection<Article>('articles').valueChanges();
   }
 
   createArticle(article: Article) {
