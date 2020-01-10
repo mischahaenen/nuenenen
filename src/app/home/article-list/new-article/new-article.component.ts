@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ArticleService } from '@app/home/article-list/shared/article.service';
 import { Article } from '@app/home/article-list/shared/article';
 import { AuthService } from '@core/auth/auth.service';
+import { Tag } from '@shared/models/tag';
 
 @Component({
   selector: 'app-new-article',
@@ -13,11 +14,13 @@ import { AuthService } from '@core/auth/auth.service';
 export class NewArticleComponent implements OnInit {
   public articleForm: FormGroup;
   public article: Article;
+  public tags: Tag[];
   private userName: string;
 
   constructor(private articleService: ArticleService, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
+    this.tags = this.articleService.tags;
     this.articleForm = this.inizializeFormGroup();
     this.articleForm.valueChanges.subscribe(article => (this.article = Object.assign({}, article)));
   }
@@ -38,7 +41,7 @@ export class NewArticleComponent implements OnInit {
       author: new FormControl(this.userName),
       image: new FormControl(''),
       created: new FormControl(Date.now()),
-      tags: new FormControl('')
+      tag: new FormControl('')
     });
   }
 }
