@@ -15,33 +15,12 @@ export class ArticleFilterComponent {
   private textFormValue: string;
   private selectedTag: Tag;
   public searchForm: FormGroup;
-  public tags: Tag[] = [
-    { name: 'Bieberstufe', active: false },
-    { name: 'Wolfsstufe', active: false },
-    { name: 'Pfadistufe', active: false },
-    { name: 'Piostufe', active: false },
-    { name: 'Roverstufe', active: false },
-    { name: 'Abteilung', active: false }
-  ];
 
-  constructor(private articleService: ArticleService) {
+  constructor(public articleService: ArticleService) {
     this.searchForm = new FormGroup({
       text: new FormControl()
     });
     this.searchForm.get('text').valueChanges.subscribe(value => this.filter(value));
-  }
-
-  filterText(text: string): void {
-    this.articleService
-      .getArticles()
-      .pipe(
-        map((articles: Article[]) => {
-          return text ? articles.filter(article => article.title.includes(text) || article.description.includes(text)) : articles;
-        })
-      )
-      .subscribe(articles => {
-        this.articleService.articlesChanged.emit(articles);
-      });
   }
 
   filter(value: string): void {
@@ -50,7 +29,7 @@ export class ArticleFilterComponent {
       .pipe(
         map(articles => {
           let filteredArticles = articles;
-          const tag = this.tags.find(t => t.name === value);
+          const tag = this.articleService.tags.find(t => t.name === value);
 
           // change the active state of the existing tag and stors selectedtag
           if (tag) {
@@ -81,6 +60,6 @@ export class ArticleFilterComponent {
 
   changeTagState(tag: Tag) {
     tag.active = !tag.active;
-    this.tags.map(t => (t.name === tag.name ? (t.active = tag.active) : (t.active = false)));
+    this.articleService.tags.map(t => (t.name === tag.name ? (t.active = tag.active) : (t.active = false)));
   }
 }

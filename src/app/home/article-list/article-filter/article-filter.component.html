@@ -5,6 +5,6 @@
     </mat-form-field>
   </form>
 
-  <button mat-raised-button class="mb-3 mr-3" *ngFor="let tag of tags" [color]="tag.active ? 'accent' : 'black'"
+  <button mat-raised-button class="mb-3 mr-3" *ngFor="let tag of articleService.tags" [color]="tag.active ? 'accent' : 'black'"
     (click)="filter(tag.name)">{{tag.name}}</button>
 </div>

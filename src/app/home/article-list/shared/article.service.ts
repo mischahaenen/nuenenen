@@ -8,11 +8,20 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { NotificationService } from '@shared/services/notification.service';
 import { NotificationType } from '@shared/models/notification-type';
 import { Article } from './article';
+import { Tag } from '@app/shared/models/tag';
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
   private articleCollection: AngularFirestoreCollection<Article>;
-  articlesChanged = new EventEmitter<Article[]>();
+  public articlesChanged = new EventEmitter<Article[]>();
+  public tags: Tag[] = [
+    { name: 'Bieberstufe', active: false },
+    { name: 'Wolfsstufe', active: false },
+    { name: 'Pfadistufe', active: false },
+    { name: 'Piostufe', active: false },
+    { name: 'Roverstufe', active: false },
+    { name: 'Abteilung', active: false }
+  ];
 
   constructor(private afs: AngularFirestore, private notificationService: NotificationService) {
     this.articleCollection = afs.collection<Article>('articles');
