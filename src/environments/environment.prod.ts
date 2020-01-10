@@ -1,11 +1,13 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyBcCsyJW9GVWQ9xS0YCtXi7j0pHFqtyQ24',
-    authDomain: 'nuenenen-618ea.firebaseapp.com',
-    databaseURL: 'https://nuenenen-618ea.firebaseio.com',
-    projectId: 'nuenenen-618ea',
-    storageBucket: 'nuenenen-618ea.appspot.com',
-    messagingSenderId: '375957881353'
+    apiKey: 'AIzaSyCM9n5vEXkU3xRB0C8ewCGPHghLKKVqDp8',
+    authDomain: 'pfadi-nuenenen-dev.firebaseapp.com',
+    databaseURL: 'https://pfadi-nuenenen-dev.firebaseio.com',
+    projectId: 'pfadi-nuenenen-dev',
+    storageBucket: 'pfadi-nuenenen-dev.appspot.com',
+    messagingSenderId: '322706514551',
+    appId: '1:322706514551:web:357500b1767d5868ae1c72',
+    measurementId: 'G-5LDBT48Y9G'
   }
 };

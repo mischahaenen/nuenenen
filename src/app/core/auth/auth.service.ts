@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { User } from '../business/user/user';
+import { User } from '@shared/models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

@@ -1,7 +1,24 @@
 @import './_theme.scss';
 @import "~bootstrap/scss/bootstrap";
 
-body {
-  margin: 0;
-  padding: 0; //remove
+// Make material buttons round
+button {
+  border-radius: 30px !important;
+  -webkit-border-radius: 30px !important;
+  -moz-border-radius: 30px !important;
+}
+
+// to remove blue border: https://stackoverflow.com/questions/20340138/remove-blue-border-from-css-custom-styled-button-in-chrome
+button:focus {
+  outline: 0;
+}
+
+.style-success {
+  background-color: green;
+  color: white;
+}
+
+.style-error {
+  background-color: red;
+  color: white;
 }
