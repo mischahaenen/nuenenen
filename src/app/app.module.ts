@@ -1,27 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+
+import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagesModule } from './pages/pages.module';
-import { SharedModule } from './shared/components/shared.module';
+import { HomeModule } from '@app/home/home.module';
+import { AbteilungModule } from '@abteilung/abteilung.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    PagesModule,
-    SharedModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'nünenen-dev'),
+    CoreModule,
+    SharedModule,
+    HomeModule,
+    AbteilungModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
