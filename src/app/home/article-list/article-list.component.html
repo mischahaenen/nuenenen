@@ -1,9 +1,9 @@
 <div class="container-fluid row">
   <div class="col-12 col-lg-8" *ngIf="articles$ | async as articles">
-    <div class="d-flex justify-content-between mb-3">
-      <h1>Aktuell</h1>
-      <div>
-        <button mat-button class="mr-4" [color]="this.isFilterActive ? 'accent' : 'black'" (click)="toggleFilter()">
+    <div class="row justify-content-between mb-3">
+      <h1 class="col-12 col-xl-1">Aktuell</h1>
+      <div class="col-12 col-xl-9">
+        <button mat-button [color]="this.isFilterActive ? 'accent' : 'black'" (click)="toggleFilter()">
           <mat-icon>filter_list</mat-icon> Filter
         </button>
         <button mat-button [color]="!isListView ? 'accent' : 'black'" (click)="toggleViewMode('grid')">
@@ -12,7 +12,7 @@
         <button mat-button [color]="isListView ? 'accent' : 'black'" (click)="toggleViewMode('list')">
           <mat-icon>list</mat-icon> Listen Ansicht
         </button>
-        <button mat-raised-button class="ml-4" (click)="openNewArticlePage()" color="primary">
+        <button mat-raised-button (click)="openNewArticlePage()" color="primary">
           <mat-icon>add</mat-icon> Beitrag
           hinzufügen
         </button>
@@ -29,7 +29,7 @@
         </div>
       </ng-container>
       <ng-template #gridView>
-        <div *ngFor="let article of articles" class="col-12 col-md-6 col-lg-4 mb-4">
+        <div *ngFor="let article of articles" class="col-12 col-xl-6 mb-4">
           <app-article-card [article]="article" [isListElement]="isListView">
           </app-article-card>
         </div>

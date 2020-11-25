@@ -25,7 +25,7 @@ export class FileUploadService {
       },
       () => {
         // upload success
-        upload.url = uploadTask.snapshot.downloadURL;
+        // upload.url = uploadTask.snapshot;
         upload.name = upload.file.name;
         this.saveFileData(upload);
       }
