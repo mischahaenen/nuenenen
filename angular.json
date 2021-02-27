@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -89,7 +88,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "src/nuenenen-theme.scss"
+                "input": "src/nuenenen-theme.scss",
+                "inject": true
               },
               "src/styles.scss"
             ],
