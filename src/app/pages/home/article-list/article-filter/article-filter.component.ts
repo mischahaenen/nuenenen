@@ -1,34 +1,33 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
-
-import { ArticleService } from '@home/article-list/shared/article.service';
+import { Tag } from 'app/shared/models/tag';
+import { ArticleService } from '../shared/article.service';
 import { Article } from '../shared/article';
-import { Tag } from '@app/shared/models/tag';
 
 @Component({
   selector: 'app-article-filter',
   templateUrl: './article-filter.component.html',
-  styleUrls: ['./article-filter.component.scss']
+  styleUrls: ['./article-filter.component.scss'],
 })
 export class ArticleFilterComponent {
-  private textFormValue: string;
-  private selectedTag: Tag;
-  public searchForm: FormGroup;
+  private textFormValue = '';
+  private selectedTag = <Tag>{};
+  public searchForm = new FormGroup({});
   public tags: Tag[] = [
     { name: 'Bieberstufe', active: false },
     { name: 'Wolfsstufe', active: false },
     { name: 'Pfadistufe', active: false },
     { name: 'Piostufe', active: false },
     { name: 'Roverstufe', active: false },
-    { name: 'Abteilung', active: false }
+    { name: 'Abteilung', active: false },
   ];
 
   constructor(private articleService: ArticleService) {
     this.searchForm = new FormGroup({
-      text: new FormControl()
+      text: new FormControl(),
     });
-    this.searchForm.get('text').valueChanges.subscribe(value => this.filter(value));
+    this.searchForm.controls.text.valueChanges.subscribe((value) => this.filter(value));
   }
 
   filterText(text: string): void {
@@ -36,10 +35,14 @@ export class ArticleFilterComponent {
       .getArticles()
       .pipe(
         map((articles: Article[]) => {
-          return text ? articles.filter(article => article.title.includes(text) || article.description.includes(text)) : articles;
+          return text
+            ? articles.filter(
+                (article) => article.title.includes(text) || article.description.includes(text)
+              )
+            : articles;
         })
       )
-      .subscribe(articles => {
+      .subscribe((articles) => {
         this.articleService.articlesChanged.emit(articles);
       });
   }
@@ -48,9 +51,9 @@ export class ArticleFilterComponent {
     this.articleService
       .getArticles()
       .pipe(
-        map(articles => {
+        map((articles) => {
           let filteredArticles = articles;
-          const tag = this.tags.find(t => t.name === value);
+          const tag = this.tags.find((t) => t.name === value);
 
           // change the active state of the existing tag and stors selectedtag
           if (tag) {
@@ -59,13 +62,13 @@ export class ArticleFilterComponent {
           }
           // if tag exists and it's not jet triggered
           if (this.selectedTag && this.selectedTag.active) {
-            filteredArticles = filteredArticles.filter(a => a.tag === this.selectedTag.name);
+            filteredArticles = filteredArticles.filter((a) => a.tag === this.selectedTag.name);
           }
           // if value is no tag, look for text to filter, coming from input
           if (!tag || this.textFormValue) {
             this.textFormValue = !tag ? value : this.textFormValue;
             filteredArticles = filteredArticles.filter(
-              a =>
+              (a) =>
                 a.title.toLocaleLowerCase().includes(this.textFormValue.toLocaleLowerCase()) ||
                 a.description.toLocaleLowerCase().includes(this.textFormValue.toLocaleLowerCase())
             );
@@ -73,7 +76,7 @@ export class ArticleFilterComponent {
           return filteredArticles;
         })
       )
-      .subscribe(articles => {
+      .subscribe((articles) => {
         this.articleService.articlesChanged.emit(articles);
       });
     //
@@ -81,6 +84,6 @@ export class ArticleFilterComponent {
 
   changeTagState(tag: Tag) {
     tag.active = !tag.active;
-    this.tags.map(t => (t.name === tag.name ? (t.active = tag.active) : (t.active = false)));
+    this.tags.forEach((t) => (t.name === tag.name ? (t.active = tag.active) : (t.active = false)));
   }
 }

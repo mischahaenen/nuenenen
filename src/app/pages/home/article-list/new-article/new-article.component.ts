@@ -1,25 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ArticleService } from '@app/home/article-list/shared/article.service';
-import { Article } from '@app/home/article-list/shared/article';
-import { AuthService } from '@core/auth/auth.service';
+import { AuthService } from 'app/core/auth/auth.service';
+import { Article } from '../shared/article';
+import { ArticleService } from '../shared/article.service';
 
 @Component({
   selector: 'app-new-article',
   templateUrl: './new-article.component.html',
-  styleUrls: ['./new-article.component.scss']
+  styleUrls: ['./new-article.component.scss'],
 })
 export class NewArticleComponent implements OnInit {
-  public articleForm: FormGroup;
-  public article: Article;
-  private userName: string;
+  public articleForm = new FormGroup({});
+  public article = <Article>{};
+  private userName = '';
 
-  constructor(private articleService: ArticleService, private router: Router, private authService: AuthService) {}
+  constructor(
+    private articleService: ArticleService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.articleForm = this.inizializeFormGroup();
-    this.articleForm.valueChanges.subscribe(article => (this.article = Object.assign({}, article)));
+    this.articleForm.valueChanges.subscribe(
+      (article) => (this.article = Object.assign({}, article))
+    );
   }
 
   save(): void {
@@ -38,7 +44,7 @@ export class NewArticleComponent implements OnInit {
       author: new FormControl(this.userName),
       image: new FormControl(''),
       created: new FormControl(Date.now()),
-      tags: new FormControl('')
+      tags: new FormControl(''),
     });
   }
 }

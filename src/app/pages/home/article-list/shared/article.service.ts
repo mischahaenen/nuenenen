@@ -1,13 +1,13 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
-import { NotificationService } from '@shared/services/notification.service';
-import { NotificationType } from '@shared/models/notification-type';
+
 import { Article } from './article';
+import { NotificationService } from 'app/shared/services/notification.service';
+import { NotificationType } from 'app/shared/models/notification-type';
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
@@ -24,7 +24,7 @@ export class ArticleService {
 
   createArticle(article: Article) {
     this.articleCollection
-      .add(article as Article)
+      .add(article)
       .then(value => this.notificationService.notify(NotificationType.SUCCESS, 'Dein Beitrag wurde erfolgreich publiziert'))
       .catch(error => this.notificationService.notify(NotificationType.ERROR, error));
   }

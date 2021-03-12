@@ -7,10 +7,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
-import { HomeModule } from '@app/home/home.module';
-import { AbteilungModule } from '@abteilung/abteilung.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './pages/home/home.module';
+import { AbteilungModule } from './pages/abteilung/abteilung.module';
 
 @NgModule({
   declarations: [AppComponent],

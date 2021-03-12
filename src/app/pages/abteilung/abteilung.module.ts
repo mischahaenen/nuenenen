@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AbteilungComponent } from '@abteilung/abteilung.component';
+import { AbteilungComponent } from './abteilung.component';
 
 @NgModule({
   declarations: [AbteilungComponent],

@@ -3,19 +3,26 @@
     <h1 class="mb-4">Neuer Beitrag</h1>
     <form [formGroup]="articleForm" (ngSubmit)="save()">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Titel" formControlName="title">
+        <input matInput placeholder="Titel" formControlName="title" />
       </mat-form-field>
       <mat-form-field class="w-100">
-        <textarea matInput matTextareaAutosize placeholder="Beschreibung" formControlName="description"></textarea>
+        <textarea matInput placeholder="Beschreibung" formControlName="description"></textarea>
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput placeholder="Bild" formControlName="image">
+        <input matInput placeholder="Bild" formControlName="image" />
       </mat-form-field>
       <mat-form-field class="w-100">
-        <input matInput placeholder="Tags" formControlName="tags">
+        <input matInput placeholder="Tags" formControlName="tags" />
       </mat-form-field>
-      <button class="w-25 mr-3" type="submit" mat-raised-button color="primary"
-        [disabled]="articleForm.invalid">Speichern</button>
+      <button
+        class="w-25 mr-3"
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="articleForm.invalid"
+      >
+        Speichern
+      </button>
       <button class="w-25" mat-raised-button (click)="abort()">Abbrechen</button>
     </form>
   </div>

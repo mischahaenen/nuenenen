@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { User } from '@shared/models/user';
 import { Observable, of } from 'rxjs';
 import firebase from 'firebase/app';
-
-
+import { User } from 'app/shared/models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  user: Observable<User>;
+  user = new Observable();
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private router: Router
+  ) {
     //// Get auth data, then get firestore user document || null
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.user = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
@@ -28,21 +30,23 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  private oAuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider).then(credential => {
-      this.updateUserData(credential.user);
+  private oAuthLogin(provider: any) {
+    return this.afAuth.signInWithPopup(provider).then((credential) => {
+      if (credential.user) {
+        this.updateUserData(credential.user);
+      }
     });
   }
 
-  private updateUserData(user) {
+  private updateUserData(user: firebase.User) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
       uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
+      email: user.email || 'unknown',
+      displayName: user.displayName || 'unknown',
+      photoURL: user.photoURL || 'unknown',
     };
 
     return userRef.set(data, { merge: true });

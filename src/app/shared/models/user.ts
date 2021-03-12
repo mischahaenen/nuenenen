@@ -1,4 +1,4 @@
-export class User {
+export interface User {
   uid: string;
   email: string;
   photoURL?: string;

@@ -2,6 +2,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@environments/*": ["src/environments/*"],
+    },
     "downlevelIteration": true,
     "outDir": "./dist/nuenenen",
     "sourceMap": true,
@@ -19,25 +26,13 @@
       "es2018",
       "dom"
     ],
-    "paths": {
-      "@app/*": [
-        "./app/*"
-      ],
-      "@core/*": [
-        "./app/core/*"
-      ],
-      "@home/*": [
-        "./app/home/*"
-      ],
-      "@abteilung/*": [
-        "./app/abteilung/*"
-      ],
-      "@shared/*": [
-        "./app/shared/*"
-      ],
-      "@environment/*": [
-        "./environments/*"
-      ],
-    }
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "strictTemplates": true
   }
 }
