@@ -8,7 +8,7 @@ import { User } from 'app/shared/models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  user = new Observable();
+  user = new Observable<any>();
 
   constructor(
     private afAuth: AngularFireAuth,
