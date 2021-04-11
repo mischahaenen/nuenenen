@@ -1,6 +1,7 @@
 <!-- User NOT logged in -->
 <ng-template #guest>
   <button mat-button (click)="login()">Login</button>
+  <p>{{ user$ | async | json }}</p>
 </ng-template>
 
 <!-- User logged in -->

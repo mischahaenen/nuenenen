@@ -4,11 +4,29 @@
   flex: 1 1 auto;
 }
 
+h1 {
+  font-weight: 100;
+}
+
 .nav-button {
   width: 100px;
+}
+
+a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
 }
 
 .is-active {
   background-color: white;
   color: black;
+  border: none;
+  display: inline-block;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 16px;
+  overflow: visible;
 }

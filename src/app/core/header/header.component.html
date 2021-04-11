@@ -1,10 +1,11 @@
-  <!-- p-4 simulates spacing that container-fluid -->
-  <mat-toolbar color="primary" class="mat-elevation-z6 p-4 sticky-top">
-    <h1><b>PFADI</b> NÜNENEN</h1>
-    <div class="filler"></div>
-    <div *ngFor="let navElement of navElements">
-      <button mat-button [routerLink]="navElement.routerLink" routerLinkActive="is-active"
-        class="ml-4 nav-button">{{navElement.titel}}</button>
-    </div>
-    <app-login class="ml-4"></app-login>
-  </mat-toolbar>
+<!-- p-4 simulates spacing which container-fluid uses -->
+<mat-toolbar color="primary" class="mat-elevation-z6 p-4 sticky-top">
+  <h1><strong>PFADI</strong> NÜNENEN</h1>
+  <div class="filler"></div>
+  <div *ngFor="let navElement of navElements">
+    <a [routerLink]="navElement.routerLink" routerLinkActive="is-active" class="ml-4">{{
+      navElement.titel
+    }}</a>
+  </div>
+  <app-login class="ml-4"></app-login>
+</mat-toolbar>
