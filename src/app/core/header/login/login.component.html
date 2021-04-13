@@ -1,12 +1,13 @@
 <!-- User NOT logged in -->
 <ng-template #guest>
-  <button mat-button (click)="login()">Login</button>
-  <p>{{ user$ | async | json }}</p>
+  <button class="login-button" mat-button (click)="login()">Login</button>
 </ng-template>
 
 <!-- User logged in -->
 <div *ngIf="user$ | async as user; else guest">
-  <button mat-button [matMenuTriggerFor]="profil">{{ user.displayName }}</button>
+  <button class="login-button" mat-button [matMenuTriggerFor]="profil">
+    {{ user.displayName }}
+  </button>
   <mat-menu #profil="matMenu">
     <button mat-menu-item>Profil</button>
     <button mat-menu-item (click)="logout()">Logout</button>

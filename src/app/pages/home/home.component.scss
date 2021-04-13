@@ -1,15 +1,13 @@
 .vertical-center {
-  min-height: 94%;
-  /* Fallback for browsers do NOT support vh unit */
-  min-height: 94vh;
-  /* 100 -6vh because the ToolBar has 6vh units */
-
+  height: 100vh;
   display: flex;
   align-items: center;
 }
 
 .home-screen {
   background: no-repeat top right / contain url(../../../assets/images/home_background.png);
+  position: relative;
+  top: 0;
 }
 
 .home-image {
