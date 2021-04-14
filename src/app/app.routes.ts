@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AbteilungComponent } from './pages/abteilung/abteilung.component';
-import { NewArticleComponent } from './pages/home/article-list/new-article/new-article.component';
+import { NewArticleComponent } from './pages/home/new-article/new-article.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
@@ -12,13 +12,13 @@ const routes: Routes = [
   { path: 'shop', component: HomeComponent },
   {
     path: 'new-article',
-    component: NewArticleComponent
+    component: NewArticleComponent,
   },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

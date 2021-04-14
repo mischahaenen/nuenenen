@@ -1,10 +1,17 @@
 <div class="article-filter-container p-3">
   <form [formGroup]="searchForm" novalidate>
-    <mat-form-field class="col-12 col-lg-6">
-      <input matInput placeholder="Suche" formControlName="text">
+    <mat-form-field class="col-12">
+      <input matInput placeholder="Suche" formControlName="text" />
     </mat-form-field>
   </form>
 
-  <button mat-raised-button class="mb-3 mr-3" *ngFor="let tag of tags" [color]="tag.active ? 'accent' : 'black'"
-    (click)="filter(tag.name)">{{tag.name}}</button>
+  <button
+    mat-raised-button
+    class="mb-3 mr-3"
+    *ngFor="let tag of tags"
+    [color]="tag.active ? 'primary' : 'white'"
+    (click)="filter(tag.name)"
+  >
+    {{ tag.name }}
+  </button>
 </div>
