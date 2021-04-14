@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService) {}
   ngOnInit() {
     this.user$ = this.authService.getUser();
-    this.authService.getUser().subscribe((user) => console.log(user));
   }
 
   login(): void {
