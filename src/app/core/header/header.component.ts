@@ -16,9 +16,7 @@ export class HeaderComponent {
   ];
   constructor(public auth: AuthService) {}
 
-  @HostListener('window:scroll', ['$event']) onScroll(e: Event) {
-    console.log(this.getYPosition(e));
-
+  @HostListener('window:scroll', ['$event']) onScroll() {
     let element = document.querySelector('.header');
     if (element) {
       if (window.pageYOffset > element.clientHeight) {
@@ -28,8 +26,5 @@ export class HeaderComponent {
         this.color = 'primary';
       }
     }
-  }
-  getYPosition(e: Event): number {
-    return (e.target as Element).scrollWidth;
   }
 }
