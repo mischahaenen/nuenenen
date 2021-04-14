@@ -1,15 +1,17 @@
-.vertical-center {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
 
 .home-screen {
   background: no-repeat top right / contain url(../../../assets/images/home_background.png);
   position: relative;
   top: 0;
+
+  .vertical-center {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .home-image {
+    width: 100%;
+  }
 }
 
-.home-image {
-  width: 100%;
-}
+

@@ -1,10 +1,6 @@
 <!-- p-4 simulates spacing which container-fluid uses -->
-<mat-toolbar
-  [color]="color"
-  class="navbar-inverse header mat-elevation-z6 p-4"
-  (scroll)="onScroll()"
->
-  <h1 class="nav-items"><strong>PFADI</strong> NÜNENEN</h1>
+<mat-toolbar [color]="color" class="navbar-inverse header mat-elevation-z6" (scroll)="onScroll()">
+  <h1 class="nav-items"><strong>PFADI</strong><span class="spacing ml-2">NÜNENEN</span></h1>
   <div *ngFor="let navElement of navElements">
     <a [routerLink]="navElement.routerLink" routerLinkActive="is-active" class="ml-4">{{
       navElement.titel
