@@ -26,6 +26,7 @@
     "bootstrap": "^4.6.0",
     "core-js": "^3.9.0",
     "firebase": "^8.2.9",
+    "ngx-page-scroll-core": "^7.0.4",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

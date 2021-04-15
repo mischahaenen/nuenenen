@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  activeSection = 1;
+  constructor(
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any
+  ) {}
 
   ngOnInit() {}
 
-  navigateToAbteilungPage(): void {
-    this.router.navigate(['abteilung']);
+  fullPageScroll(e: HTMLElement, i: number) {
+    this.pageScrollService.scroll({
+      scrollTarget: e,
+      document: this.document,
+    });
+
+    this.activeSection = i;
   }
 }

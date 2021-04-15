@@ -13,6 +13,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'app/core/modules/material.module';
 import { SharedModule } from 'app/shared/shared.module';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SharedModule } from 'app/shared/shared.module';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
+    NgxPageScrollCoreModule.forRoot({ duration: 500 }),
     AngularFireAuthModule,
     AngularFirestoreModule,
     SharedModule,
