@@ -1,43 +1,27 @@
 <div class="container-fluid">
-  <div class="mb-3">
+  <div class="title-section">
     <h1>Aktuelles aus der Abteilung</h1>
-    <div>
-      <button
-        mat-button
-        class="mr-4"
-        [color]="this.isFilterActive ? 'accent' : 'black'"
-        (click)="toggleFilter()"
-      >
-        <mat-icon>filter_list</mat-icon> Filter
-      </button>
-      <button
-        mat-button
-        [color]="!isListView ? 'accent' : 'black'"
-        (click)="toggleViewMode('grid')"
-      >
-        <mat-icon>grid_on</mat-icon> Gitter Ansicht
-      </button>
-      <button mat-button [color]="isListView ? 'accent' : 'black'" (click)="toggleViewMode('list')">
-        <mat-icon>list</mat-icon> Listen Ansicht
-      </button>
-      <button mat-raised-button class="ml-4" (click)="openNewArticlePage()" color="primary">
-        <mat-icon>add</mat-icon> Beitrag hinzufügen
-      </button>
-    </div>
+    <button mat-mini-fab (click)="openNewArticlePage()" color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
-  <div *ngIf="isFilterActive" class="mb-4">
+  <div class="mb-3">
+    <button mat-button [color]="this.isFilterActive ? 'accent' : 'black'" (click)="toggleFilter()">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+    <button mat-button [color]="!isListView ? 'accent' : 'black'" (click)="toggleViewMode('grid')">
+      <mat-icon>grid_on</mat-icon> Gitter Ansicht
+    </button>
+    <button mat-button [color]="isListView ? 'accent' : 'black'" (click)="toggleViewMode('list')">
+      <mat-icon>list</mat-icon> Listen Ansicht
+    </button>
+  </div>
+  <div *ngIf="isFilterActive" class="mb-3">
     <app-article-filter></app-article-filter>
   </div>
-  <div *ngIf="articles$ | async as articles" class="row">
-    <ng-container *ngIf="isListView; else gridView">
-      <div *ngFor="let article of articles" class="col-12 mb-4">
-        <app-article-card [article]="article" [isListElement]="isListView"> </app-article-card>
-      </div>
-    </ng-container>
-    <ng-template #gridView>
-      <div *ngFor="let article of articles" class="col-12 col-md-6 col-lg-4 mb-4">
-        <app-article-card [article]="article" [isListElement]="isListView"> </app-article-card>
-      </div>
-    </ng-template>
+  <div *ngIf="articles$ | async as articles" [ngClass]="{ 'grid-view': !isListView }">
+    <div *ngFor="let article of articles">
+      <app-article-card [article]="article" [isListElement]="isListView"> </app-article-card>
+    </div>
   </div>
 </div>

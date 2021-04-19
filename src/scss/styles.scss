@@ -22,3 +22,15 @@ button:focus {
   background-color: red;
   color: white;
 }
+
+h1 {
+  font-weight: 700;
+}
+p {
+  overflow: hidden;
+  max-width: 75ch;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #666666;
+}
+
