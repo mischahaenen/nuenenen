@@ -26,13 +26,6 @@
     .kontakt-button {
       width: 300px;
     }
-
-    @media only screen and (max-width: 600px) {
-      .kontakt-button {
-        width: 100%;
-      }
-    }
-
   }
   .expand-more {
     justify-content: center;
@@ -49,6 +42,23 @@
       width: 100px;
       font-size: 100px;
     }
+  }
+}
+
+.home-info-section {
+  padding-top: 75px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+@media only screen and (max-width: 600px) {
+  .kontakt-button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .home-info-section {
+    flex-direction: column;
   }
 }
 
