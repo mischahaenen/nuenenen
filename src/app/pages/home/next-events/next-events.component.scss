@@ -1,5 +1,12 @@
 .next-events {
-  background-color: #F6F9F8;
+  background-color: hsl(160, 20%, 97%);
   border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  } 
 }

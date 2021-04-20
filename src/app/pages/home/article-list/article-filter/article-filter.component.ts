@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Tag } from 'app/shared/models/tag';
 import { ArticleService } from '../shared/article.service';
 import { Article } from '../shared/article';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-article-filter',
@@ -11,10 +12,13 @@ import { Article } from '../shared/article';
   styleUrls: ['./article-filter.component.scss'],
 })
 export class ArticleFilterComponent {
-  private textFormValue = '';
-  private selectedTag = <Tag>{};
-  public searchForm = new FormGroup({});
-  public tags: Tag[] = [
+  searchKeyWords: string[] = [];
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  selectedTag = <Tag>{};
+  tags: Tag[] = [
     { name: 'Bieberstufe', active: false },
     { name: 'Wolfsstufe', active: false },
     { name: 'Pfadistufe', active: false },
@@ -23,14 +27,33 @@ export class ArticleFilterComponent {
     { name: 'Abteilung', active: false },
   ];
 
-  constructor(private articleService: ArticleService) {
-    this.searchForm = new FormGroup({
-      text: new FormControl(),
-    });
-    this.searchForm.controls.text.valueChanges.subscribe((value) => this.filter(value));
+  constructor(private articleService: ArticleService) {}
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.searchKeyWords.push(value);
+    }
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+    console.log(value);
   }
 
-  filterText(text: string): void {
+  remove(key: string): void {
+    const index = this.searchKeyWords.indexOf(key);
+
+    if (index >= 0) {
+      this.searchKeyWords.splice(index, 1);
+    }
+    console.log(key);
+  }
+
+  /* filterText(text: string): void {
     this.articleService
       .getArticles()
       .pipe(
@@ -80,7 +103,7 @@ export class ArticleFilterComponent {
         this.articleService.articlesChanged.emit(articles);
       });
     //
-  }
+  } */
 
   changeTagState(tag: Tag) {
     tag.active = !tag.active;

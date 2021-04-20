@@ -1,6 +1,19 @@
 .article-filter-container {
-  background-color: #F6F8FA;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(160, 20%, 97%);
   border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
 
+.tag-section {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 700px) {
+  .tag-section {
+    button {
+      margin-bottom: 0.25rem;
+    }
+  }
 }

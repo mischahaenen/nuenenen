@@ -1,17 +1,31 @@
 <div class="article-filter-container p-3">
-  <form [formGroup]="searchForm" novalidate>
-    <mat-form-field class="col-12">
-      <input matInput placeholder="Suche" formControlName="text" />
-    </mat-form-field>
-  </form>
-
-  <button
-    mat-raised-button
-    class="mb-3 mr-3"
-    *ngFor="let tag of tags"
-    [color]="tag.active ? 'primary' : 'white'"
-    (click)="filter(tag.name)"
-  >
-    {{ tag.name }}
-  </button>
+  <mat-form-field>
+    <mat-label>Suche</mat-label>
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let key of searchKeyWords"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(key)"
+      >
+        {{ key }}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        [matChipInputFor]="chipList"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+  <div class="tag-section">
+    <button
+      mat-raised-button
+      *ngFor="let tag of tags"
+      [color]="tag.active ? 'primary' : 'white'"
+      class="mr-1"
+    >
+      {{ tag.name }}
+    </button>
+  </div>
 </div>
