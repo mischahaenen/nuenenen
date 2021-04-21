@@ -19,7 +19,7 @@
   <div *ngIf="isFilterActive" class="mb-3">
     <app-article-filter></app-article-filter>
   </div>
-  <div *ngIf="articles$ | async as articles" [ngClass]="{ 'grid-view': !isListView }">
+  <div *ngIf="articles$ | async as articles" [ngClass]="isListView ? 'list-view' : 'grid-view'">
     <div *ngFor="let article of articles">
       <app-article-card [article]="article" [isListElement]="isListView"> </app-article-card>
     </div>

@@ -41,6 +41,12 @@
   padding-top: 75px;
   display: flex;
   flex-direction: row-reverse;
+  .article-section {
+    flex: 70%
+  }
+  .next-event-section {
+    flex: 30%
+  }
 }
 @media only screen and (max-width: 600px) {
   .kontakt-button {
@@ -48,12 +54,10 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   .home-info-section {
     flex-direction: column;
-  }
-  .mobile-spacing {
-    height: 1rem;
+    gap: 1rem
   }
 }
 
