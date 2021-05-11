@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Tag } from 'app/shared/models/tag';
-import { ArticleService } from '../shared/article.service';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map } from 'rxjs/operators';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-article-filter',

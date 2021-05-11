@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Article } from '../shared/article';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Article } from '../models/article';
 
 @Component({
   selector: 'app-article-card',
