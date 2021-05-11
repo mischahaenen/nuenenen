@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
-import { Article } from '../article-list/models/article';
-import { ArticleService } from '../article-list/services/article.service';
+import { Article } from '../../models/article';
+import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'app-new-article',

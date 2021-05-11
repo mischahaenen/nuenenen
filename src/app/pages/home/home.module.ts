@@ -5,15 +5,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { ArticleCardComponent } from './article-list/article-card/article-card.component';
-import { ArticleFilterComponent } from './article-list/article-filter/article-filter.component';
-import { NextEventsComponent } from './next-events/next-events.component';
-import { NewArticleComponent } from './new-article/new-article.component';
-import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { NewArticleComponent } from './components/new-article/new-article.component';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from 'app/core/modules/material.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { ArticleListComponent } from './components/article-list/article-list.component';
+import { NextEventsComponent } from './components/next-events/next-events.component';
+import { ArticleFilterComponent } from './components/article-filter/article-filter.component';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
     AngularFireAuthModule,
     AngularFirestoreModule,
     SharedModule,
+    HomeRoutingModule,
   ],
   exports: [ArticleCardComponent],
 })

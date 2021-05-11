@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Article } from '../models/article';
+import { Article } from '../../models/article';
 
 @Component({
   selector: 'app-article-card',

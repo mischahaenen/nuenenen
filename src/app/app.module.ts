@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
 
-import { AppRoutingModule } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'environments/environment';
 import { CoreModule } from './core/core.module';
@@ -19,11 +19,8 @@ import { AbteilungModule } from './pages/abteilung/abteilung.module';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'nünenen-dev'),
     CoreModule,
-    SharedModule,
-    HomeModule,
-    AbteilungModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
