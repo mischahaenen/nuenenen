@@ -1,6 +1,10 @@
 @import './_theme.scss';
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
+.nuenenen-container {
+  // header has hight of 75px
+  padding-top: calc(75px + 1rem);
+}
 // Make material buttons round
 button {
   border-radius: 30px !important;
@@ -33,4 +37,3 @@ p {
   line-height: 1.5;
   color: #666666;
 }
-
