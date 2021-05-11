@@ -1,0 +1,25 @@
+.nuenenen-container {
+  padding-top: 75px;
+}
+.new-article-form {
+  display: flex;
+}
+.form-section {
+  padding: 1rem;
+  background-color: hsl(160, 20%, 97%);
+  border-radius: 4px;
+}
+.example-card {
+  margin: auto;
+}
+.footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: fixed;
+  height: 4rem;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: hsl(0, 0%, 90%);
+}

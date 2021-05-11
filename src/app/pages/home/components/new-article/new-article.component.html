@@ -1,7 +1,7 @@
-<div class="container-fluid row p-4">
-  <div class="col-12 col-lg-5 mr-lg-5">
-    <h1 class="mb-4">Neuer Beitrag</h1>
-    <form [formGroup]="articleForm" (ngSubmit)="save()">
+<div class="nuenenen-container container-fluid">
+  <h1>Neuer Beitrag erstellen</h1>
+  <div class="new-article-form">
+    <form class="form-section" [formGroup]="articleForm" (ngSubmit)="save()">
       <mat-form-field class="w-100">
         <input matInput placeholder="Titel" formControlName="title" />
       </mat-form-field>
@@ -14,20 +14,21 @@
       <mat-form-field class="w-100">
         <input matInput placeholder="Tags" formControlName="tags" />
       </mat-form-field>
-      <button
-        class="w-25 mr-3"
-        type="submit"
-        mat-raised-button
-        color="primary"
-        [disabled]="articleForm.invalid"
-      >
-        Speichern
-      </button>
-      <button class="w-25" mat-raised-button (click)="abort()">Abbrechen</button>
     </form>
+    <div class="example-card">
+      <app-article-card [article]="article"></app-article-card>
+    </div>
   </div>
-  <div class="col-12 col-lg-6">
-    <h2 class="mb-4">Vorschau</h2>
-    <app-article-card [article]="article"></app-article-card>
+  <div class="footer">
+    <button
+      class="mr-3"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="articleForm.invalid"
+    >
+      Speichern
+    </button>
+    <button class="mr-3" mat-raised-button (click)="abort()">Abbrechen</button>
   </div>
 </div>
