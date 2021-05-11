@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { A11yModule } from '@angular/cdk/a11y';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -45,7 +44,6 @@ import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   imports: [
-    A11yModule,
     CdkTableModule,
     CdkTreeModule,
     CdkStepperModule,
@@ -86,10 +84,9 @@ import { MatTreeModule } from '@angular/material/tree';
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
-    PortalModule
+    PortalModule,
   ],
   exports: [
-    A11yModule,
     CdkTableModule,
     CdkTreeModule,
     CdkStepperModule,
@@ -130,7 +127,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
-    PortalModule
-  ]
+    PortalModule,
+  ],
 })
 export class MaterialModule {}

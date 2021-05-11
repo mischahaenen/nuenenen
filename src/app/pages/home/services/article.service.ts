@@ -3,8 +3,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { NotificationService } from 'app/shared/services/notification.service';
-import { NotificationType } from 'app/shared/models/notification-type';
+import { NotificationService } from '@shared/services/notification.service';
+import { NotificationType } from '@shared/models/notification-type';
 import { Article } from '../models/article';
 
 @Injectable({ providedIn: 'root' })

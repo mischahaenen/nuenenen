@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Tag } from 'app/pages/home/models/tag';
+import { Tag } from '@pages/home/models/tag';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map } from 'rxjs/operators';
 import { ArticleService } from '../../services/article.service';

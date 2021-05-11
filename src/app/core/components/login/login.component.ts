@@ -1,6 +1,5 @@
-import { AfterContentInit, AfterViewInit, Component, OnChanges, OnInit } from '@angular/core';
-import { AuthService } from 'app/core/auth/auth.service';
-import { User } from 'app/shared/models/user';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@core/auth/auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
