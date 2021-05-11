@@ -24,7 +24,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   openNewArticlePage(): void {
-    this.router.navigate(['/new-article']);
+    this.router.navigate(['/home/new-article']);
   }
 
   toggleViewMode(mode: string) {

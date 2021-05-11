@@ -12,10 +12,6 @@ const routes: Routes = [
     path: 'abteilung',
     loadChildren: () => import('./pages/abteilung/abteilung.module').then((m) => m.AbteilungModule),
   },
-  {
-    path: 'new-article',
-    component: NewArticleComponent,
-  },
   { path: '**', redirectTo: 'home' },
 ];
 
