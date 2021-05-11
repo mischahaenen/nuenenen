@@ -11,7 +11,7 @@ import { ArticleService } from './shared/article.service';
   styleUrls: ['./article-list.component.scss'],
 })
 export class ArticleListComponent implements OnInit {
-  articles$ = new Observable<Article[]>();
+  articles$ = of<Article[]>();
   isFilterActive = false;
   isListView = false;
 

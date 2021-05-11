@@ -22,6 +22,7 @@
     <button
       mat-raised-button
       *ngFor="let tag of tags"
+      (click)="selectTag(tag)"
       [color]="tag.active ? 'primary' : 'white'"
       class="mr-1"
     >

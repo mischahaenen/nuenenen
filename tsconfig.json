@@ -3,11 +3,11 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@app/*": ["src/app/*"],
       "@pages/*": ["src/app/pages/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
       "@environments/*": ["src/environments/*"],
+      "@app/*": ["src/app/*"]
     },
     "downlevelIteration": true,
     "outDir": "./dist/nuenenen",
