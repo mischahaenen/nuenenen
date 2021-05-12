@@ -6,7 +6,7 @@
         <input matInput placeholder="Titel" formControlName="title" />
       </mat-form-field>
       <mat-form-field class="w-100">
-        <textarea matInput placeholder="Beschreibung" formControlName="description"></textarea>
+        <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
       </mat-form-field>
       <mat-form-field class="w-100">
         <input matInput placeholder="Bild" formControlName="image" />
