@@ -3,7 +3,8 @@ export interface Article {
   title: string;
   description: string;
   author: string;
+  author_image: string;
   created: Date;
-  photoUrl?: string;
   tag: string;
+  image?: string;
 }

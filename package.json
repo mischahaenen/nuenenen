@@ -23,6 +23,8 @@
     "@angular/platform-browser": "^11.2.3",
     "@angular/platform-browser-dynamic": "^11.2.3",
     "@angular/router": "^11.2.3",
+    "@ckeditor/ckeditor5-angular": "^2.0.1",
+    "@ckeditor/ckeditor5-build-classic": "^27.1.0",
     "bootstrap": "^4.6.0",
     "core-js": "^3.9.0",
     "firebase": "^8.2.9",
