@@ -17,9 +17,7 @@
           }"
         ></editor>
       </div>
-      <mat-form-field class="w-100">
-        <input matInput placeholder="Bild" formControlName="image" />
-      </mat-form-field>
+      <app-file-upload></app-file-upload>
       <mat-form-field class="w-100">
         <mat-select placeholder="Tags" formControlName="tags" name="tag">
           <mat-option *ngFor="let tag of tags$ | async" [value]="tag.name">

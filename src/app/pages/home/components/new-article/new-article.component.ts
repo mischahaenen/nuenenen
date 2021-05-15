@@ -24,7 +24,7 @@ export class NewArticleComponent implements OnInit {
     'insertdatetime media table paste code help wordcount',
   ];
   toolbar: string =
-    'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
+    'undo redo | formatselect | bold italic | bullist numlist outdent indent | removeformat | help';
 
   constructor(
     private articleService: ArticleService,
@@ -69,7 +69,7 @@ export class NewArticleComponent implements OnInit {
       author_image: new FormControl(''),
       image: new FormControl(),
       created: new FormControl(Date.now()),
-      tags: new FormControl('', Validators.required),
+      tag: new FormControl('', Validators.required),
     });
   }
 }

@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Tag } from '@pages/home/models/tag';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map } from 'rxjs/operators';
 import { ArticleService } from '../../services/article.service';
+import { TagService } from '@pages/home/services/tag.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-article-filter',
   templateUrl: './article-filter.component.html',
   styleUrls: ['./article-filter.component.scss'],
 })
-export class ArticleFilterComponent {
+export class ArticleFilterComponent implements OnInit {
+  tags: Tag[] = [];
   searchKeyWords: string[] = [];
-  tags: Tag[] = [
-    { name: 'Bieberstufe', active: false },
-    { name: 'Wolfsstufe', active: false },
-    { name: 'Pfadistufe', active: false },
-    { name: 'Piostufe', active: false },
-    { name: 'Roverstufe', active: false },
-    { name: 'Abteilung', active: false },
-  ];
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
 
-  constructor(private articleService: ArticleService) {}
+  constructor(private articleService: ArticleService, private tagService: TagService) {}
+
+  ngOnInit(): void {
+    this.tagService.getTags().subscribe((tags) => (this.tags = tags));
+  }
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
