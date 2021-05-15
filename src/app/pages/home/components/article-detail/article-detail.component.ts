@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from '@pages/home/models/article';
 
@@ -6,6 +6,7 @@ import { Article } from '@pages/home/models/article';
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ArticleDetailComponent implements OnInit {
   article: Article = {} as Article;

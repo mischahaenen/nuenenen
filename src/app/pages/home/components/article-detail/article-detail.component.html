@@ -1,6 +1,11 @@
-<div class="nuenenen-container container-fluid">
+<div class="nuenenen-container container">
   <h1>{{ article.title }}</h1>
-  <img class="avatar" [src]="article.author_image" alt="author_image" />
-  <span>{{ article.author }}</span>
-  <div [innerHTML]="article.description"></div>
+  <div class="author-infosection">
+    <img class="avatar" [src]="article.author_image" alt="author_image" />
+    <div>
+      <strong>{{ article.author }}</strong>
+      <p>{{ article.created | timeAgo }}</p>
+    </div>
+  </div>
+  <div class="article-text-section" [innerHTML]="article.description"></div>
 </div>

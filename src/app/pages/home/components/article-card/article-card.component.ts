@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '@pages/home/services/article.service';
 import { Article } from '../../models/article';
@@ -8,6 +8,7 @@ import { Article } from '../../models/article';
   templateUrl: './article-card.component.html',
   styleUrls: ['./article-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ArticleCardComponent {
   @Input() article = <Article>{};

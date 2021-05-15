@@ -6,14 +6,15 @@
     alt="Photo of a Shiba Inu"
   />
   <mat-card-content>
-    <h5>{{ article?.title }}</h5>
-    <p>{{ article?.description | slice: 0:150 }}</p>
-    <div class="d-flex justify-content-between align-items-center mt-4">
-      <div>
-        <img class="avatar" [src]="article.author_image" alt="user" />
-        <span class="ml-3 font-grey">{{ article.author }}</span>
-      </div>
-      <span class="font-grey">{{ article.created | timeAgo }}</span>
-    </div>
+    <h5 class="card-title">{{ article.title }}</h5>
+    <div class="card-description" [innerHTML]="article.description | slice: 0:150"></div>
   </mat-card-content>
+
+  <div class="footer">
+    <div>
+      <img class="avatar" [src]="article.author_image" alt="author_image" />
+      <strong>{{ article.author }}</strong>
+    </div>
+    <p>{{ article.created | timeAgo }}</p>
+  </div>
 </mat-card>
