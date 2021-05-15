@@ -1,0 +1,6 @@
+<div class="nuenenen-container container-fluid">
+  <h1>{{ article.title }}</h1>
+  <img class="avatar" [src]="article.author_image" alt="author_image" />
+  <span>{{ article.author }}</span>
+  <div [innerHTML]="article.description"></div>
+</div>

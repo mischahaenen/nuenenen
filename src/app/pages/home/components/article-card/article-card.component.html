@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card class="card" (click)="open(article.id)">
   <img
     *ngIf="!isListElement"
     mat-card-image
@@ -10,12 +10,8 @@
     <p>{{ article?.description | slice: 0:150 }}</p>
     <div class="d-flex justify-content-between align-items-center mt-4">
       <div>
-        <img
-          class="avatar"
-          src="https://lh3.googleusercontent.com/a-/AAuE7mD5y-tWK2WnLsqNh0MrwlGevj_5_fCDdmruoEku"
-          alt="user"
-        />
-        <span class="ml-3 font-grey">Mischa Haenen</span>
+        <img class="avatar" [src]="article.author_image" alt="user" />
+        <span class="ml-3 font-grey">{{ article.author }}</span>
       </div>
       <span class="font-grey">{{ article.created | timeAgo }}</span>
     </div>

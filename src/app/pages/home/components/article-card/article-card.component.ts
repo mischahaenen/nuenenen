@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ArticleService } from '@pages/home/services/article.service';
 import { Article } from '../../models/article';
 
 @Component({
@@ -10,4 +12,10 @@ import { Article } from '../../models/article';
 export class ArticleCardComponent {
   @Input() article = <Article>{};
   @Input() isListElement = true;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  open(id: string): void {
+    this.router.navigate([id], { relativeTo: this.route });
+  }
 }

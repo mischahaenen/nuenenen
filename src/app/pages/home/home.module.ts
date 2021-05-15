@@ -15,6 +15,8 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { NextEventsComponent } from './components/next-events/next-events.component';
 import { ArticleFilterComponent } from './components/article-filter/article-filter.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HomeRoutingModule } from './home-routing.module';
     NextEventsComponent,
     ArticleCardComponent,
     ArticleFilterComponent,
+    ArticleDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { HomeRoutingModule } from './home-routing.module';
     FormsModule,
     MaterialModule,
     NgxPageScrollCoreModule.forRoot({ duration: 500 }),
+    EditorModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     SharedModule,

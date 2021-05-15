@@ -17,8 +17,14 @@ import { ArticleService } from '../../services/article.service';
 export class NewArticleComponent implements OnInit {
   articleForm = new FormGroup({});
   article = <Article>{};
-  private user$: Observable<User | undefined> = of();
   tags$: Observable<Tag[]> = of([]);
+  plugins: string[] = [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount',
+  ];
+  toolbar: string =
+    'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
 
   constructor(
     private articleService: ArticleService,
@@ -28,17 +34,27 @@ export class NewArticleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.articleForm = this.inizializeFormGroup();
     this.tags$ = this.tagService.getTags();
+    this.articleForm = this.inizializeFormGroup();
     this.articleForm.valueChanges.subscribe(
       (article) => (this.article = Object.assign({}, article))
     );
-    this.user$ = this.authService.getUser();
+    this.getAuthor();
+  }
+
+  getAuthor() {
+    this.authService.getUser().subscribe((user) => {
+      if (user) {
+        this.articleForm.controls.author.setValue(user.displayName);
+        this.articleForm.controls.author_image.setValue(user.photoURL);
+      }
+    });
   }
 
   save(): void {
     const article: Article = Object.assign({}, this.articleForm.value);
     this.articleService.createArticle(article);
+    this.router.navigate(['/home']);
   }
 
   abort(): void {
@@ -51,7 +67,7 @@ export class NewArticleComponent implements OnInit {
       description: new FormControl('', Validators.required),
       author: new FormControl(''),
       author_image: new FormControl(''),
-      image: new FormControl(''),
+      image: new FormControl(),
       created: new FormControl(Date.now()),
       tags: new FormControl('', Validators.required),
     });

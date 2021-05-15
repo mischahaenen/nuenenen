@@ -1,13 +1,22 @@
 <div class="nuenenen-container container-fluid">
   <h1>Neuer Beitrag erstellen</h1>
   <div class="new-article-form">
-    <form class="form-section" [formGroup]="articleForm" (ngSubmit)="save()">
+    <form class="form-section" [formGroup]="articleForm">
       <mat-form-field class="w-100">
         <input matInput placeholder="Titel" formControlName="title" />
       </mat-form-field>
-      <mat-form-field class="w-100">
-        <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
-      </mat-form-field>
+      <div class="w-100">
+        <editor
+          apiKey="j9whyve2yrokj4admnzdfbhh91b46h0g3lhqhjfprw4jnava"
+          formControlName="description"
+          [init]="{
+            height: 500,
+            menubar: false,
+            plugins: plugins,
+            toolbar: toolbar
+          }"
+        ></editor>
+      </div>
       <mat-form-field class="w-100">
         <input matInput placeholder="Bild" formControlName="image" />
       </mat-form-field>
@@ -26,10 +35,10 @@
   <div class="footer">
     <button
       class="mr-3"
-      type="submit"
       mat-raised-button
       color="primary"
       [disabled]="articleForm.invalid"
+      (click)="save()"
     >
       Speichern
     </button>

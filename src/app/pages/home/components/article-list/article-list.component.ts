@@ -23,8 +23,8 @@ export class ArticleListComponent implements OnInit {
     });
   }
 
-  openNewArticlePage(): void {
-    this.router.navigate(['/home/new-article']);
+  create(): void {
+    this.router.navigate(['/home/new']);
   }
 
   toggleViewMode(mode: string) {
