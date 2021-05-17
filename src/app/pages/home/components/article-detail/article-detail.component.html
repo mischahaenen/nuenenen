@@ -7,5 +7,6 @@
       <p>{{ article.created | timeAgo }}</p>
     </div>
   </div>
+  <span class="tag-section">#{{ article.tag }}</span>
   <div class="article-text-section" [innerHTML]="article.description"></div>
 </div>

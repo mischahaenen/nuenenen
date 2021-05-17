@@ -24,7 +24,7 @@ export class NewArticleComponent implements OnInit {
     'insertdatetime media table paste code help wordcount',
   ];
   toolbar: string =
-    'undo redo | formatselect | bold italic | bullist numlist outdent indent | removeformat | help';
+    'undo redo | formatselect | bold italic | bullist numlist | removeformat | help';
 
   constructor(
     private articleService: ArticleService,
@@ -36,9 +36,10 @@ export class NewArticleComponent implements OnInit {
   ngOnInit() {
     this.tags$ = this.tagService.getTags();
     this.articleForm = this.inizializeFormGroup();
-    this.articleForm.valueChanges.subscribe(
-      (article) => (this.article = Object.assign({}, article))
-    );
+    this.articleForm.valueChanges.subscribe((article) => {
+      this.article = Object.assign({}, article);
+      console.log(this.article);
+    });
     this.getAuthor();
   }
 
