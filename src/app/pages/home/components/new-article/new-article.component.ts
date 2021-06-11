@@ -38,7 +38,6 @@ export class NewArticleComponent implements OnInit {
     this.articleForm = this.inizializeFormGroup();
     this.articleForm.valueChanges.subscribe((article) => {
       this.article = Object.assign({}, article);
-      console.log(this.article);
     });
     this.getAuthor();
   }

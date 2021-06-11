@@ -1,29 +1,24 @@
-<input
-  type="file"
-  class="file-input"
-  [accept]="requiredFileType"
-  (change)="onFileSelected($event)"
-  #fileUpload
-/>
-
-<div class="file-upload">
-  {{ fileName || 'No file uploaded yet.' }}
-
-  <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
-    <mat-icon>attach_file</mat-icon>
-  </button>
+<div class="mt-3 dropzone" appDropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)">
+  <h3>Dropzone</h3>
+  <p>Füge deine Bilder hier hinzu</p>
+  <div class="file">
+    <label class="file-label">
+      <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">
+        Bilder auswählen
+      </button>
+      <input
+        hidden
+        (change)="onInput($event)"
+        #fileInput
+        type="file"
+        id="file"
+        multiple
+        accept="image/*"
+      />
+    </label>
+  </div>
 </div>
-
-<div class="progress">
-  <mat-progress-bar
-    class="progress-bar"
-    mode="determinate"
-    [value]="uploadProgress"
-    *ngIf="uploadProgress"
-  >
-  </mat-progress-bar>
-
-  <mat-icon class="cancel-upload" (click)="cancelUpload()" *ngIf="uploadProgress"
-    >delete_forever</mat-icon
-  >
+<h3>Uploads</h3>
+<div *ngFor="let file of files">
+  <app-file-upload-task [file]="file"></app-file-upload-task>
 </div>

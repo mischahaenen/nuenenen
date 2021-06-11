@@ -1,42 +1,35 @@
 <div class="nuenenen-container container-fluid">
-  <div class="new-article-form">
-    <form class="form-section" [formGroup]="articleForm">
-      <mat-form-field class="w-100">
-        <input matInput placeholder="Titel" formControlName="title" />
-      </mat-form-field>
-      <div class="w-100">
-        <editor
-          apiKey="j9whyve2yrokj4admnzdfbhh91b46h0g3lhqhjfprw4jnava"
-          formControlName="description"
-          [init]="{
-            height: 500,
-            menubar: false,
-            plugins: plugins,
-            toolbar: toolbar
-          }"
-        ></editor>
-      </div>
-      <app-file-upload></app-file-upload>
-      <mat-form-field class="w-100">
-        <mat-select placeholder="Tags" formControlName="tag" name="tag">
-          <mat-option *ngFor="let tag of tags$ | async" [value]="tag.name">
-            {{ tag.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
-    <div class="example-card">
-      <h1>{{ article.title }}</h1>
-      <div class="author-infosection">
-        <img class="avatar" [src]="article.author_image" alt="author_image" />
-        <div>
-          <strong>{{ article.author }}</strong>
-          <p>{{ article.created | timeAgo }}</p>
+  <div class="p-3">
+    <h1>Neuer Artikel hinzufügen</h1>
+    <form class="row" [formGroup]="articleForm">
+      <div class="col-12 col-lg-6">
+        <mat-form-field class="w-100">
+          <input matInput placeholder="Titel" formControlName="title" />
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <mat-select placeholder="Tags" formControlName="tag" name="tag">
+            <mat-option *ngFor="let tag of tags$ | async" [value]="tag.name">
+              {{ tag.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="w-100">
+          <editor
+            apiKey="j9whyve2yrokj4admnzdfbhh91b46h0g3lhqhjfprw4jnava"
+            formControlName="description"
+            [init]="{
+              height: 500,
+              menubar: false,
+              plugins: plugins,
+              toolbar: toolbar
+            }"
+          ></editor>
         </div>
       </div>
-      <span class="tag-section">#{{ article.tag }}</span>
-      <div class="article-text-section" [innerHTML]="article.description"></div>
-    </div>
+      <div class="col-12 col-lg-6">
+        <app-file-upload></app-file-upload>
+      </div>
+    </form>
   </div>
   <div class="footer">
     <button

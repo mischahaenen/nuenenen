@@ -1,6 +1,9 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { NotificationType } from '@shared/models/notification-type';
+import { NotificationService } from '@shared/services/notification.service';
+import { Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -9,46 +12,28 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent {
-  @Input() requiredFileType = '';
+  isHovering = false;
+  files: File[] = [];
 
-  fileName = '';
-  uploadProgress: number | null = 0;
-  uploadSub: Subscription | null = null;
+  constructor(private notificationService: NotificationService) {}
 
-  constructor(private http: HttpClient) {}
+  toggleHover(isHovering: boolean): void {
+    this.isHovering = isHovering;
+  }
 
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-
-    if (file) {
-      this.fileName = file.name;
-      const formData = new FormData();
-      formData.append('thumbnail', file);
-      console.log(this.fileName);
-
-      /* const upload$ = this.http
-        .post('/api/thumbnail-upload', formData, {
-          reportProgress: true,
-          observe: 'events',
-        })
-        .pipe(finalize(() => this.reset()));
-
-      this.uploadSub = upload$.subscribe((event) => {
-        if (event.type == HttpEventType.UploadProgress) {
-          const total = event.total || 0;
-          this.uploadProgress = Math.round(100 * (event.loaded / total));
-        }
-      }); */
+  onDrop(files: FileList): void {
+    for (let i = 0; i < files.length; i++) {
+      const type = files[i].type;
+      if (type.startsWith('image')) this.files.push(files[i]);
+      else
+        this.notificationService.notify(
+          NotificationType.ERROR,
+          'Es können nur Bilder zu deinem Artikel hinzugefügt werden'
+        );
     }
   }
-
-  cancelUpload() {
-    if (this.uploadSub) this.uploadSub.unsubscribe();
-    this.reset();
-  }
-
-  reset() {
-    this.uploadProgress = null;
-    this.uploadSub = null;
+  onInput(event: any): void {
+    const files = event.target.files as FileList;
+    this.onDrop(files);
   }
 }
